@@ -5,74 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alyntic - Customer Support Solutions | Cape Town to Global</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; background: #18183a; padding-top: 90px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: linear-gradient(135deg, #1a1a3e, #2d4a8f); color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
-        nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo-section { display: flex; align-items: center; gap: 15px; }
-        .logo-img { width: 60px; height: 60px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .logo-img img { width: 100%; height: 100%; object-fit: cover; }
-        .logo-text { font-size: 1.8rem; font-weight: bold; background: linear-gradient(45deg, #00d4ff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .tagline { font-size: 0.8rem; color: #00d4ff; letter-spacing: 1px; margin-top: -5px; }
-        .nav-links { display: flex; list-style: none; gap: 2rem; }
-        .nav-links a { color: white; text-decoration: none; transition: all 0.3s; position: relative; font-weight: 500; }
-        .nav-links a:hover { color: #00d4ff; }
-        .nav-toggle { display: none; flex-direction: column; cursor: pointer; }
-        .nav-toggle span { background: #00d4ff; height: 4px; width: 30px; margin: 4px 0; border-radius: 2px; }
-        .hero { background: linear-gradient(135deg, #1a1a3e, #2d4a8f, #4a69bd); color: white; padding: 140px 0 100px; text-align: center; position: relative; overflow: hidden; }
-        .hero-content { position: relative; z-index: 1; }
-        .hero-logo { margin-bottom: 2rem; }
-        .hero-logo img { width: 120px; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,212,255,0.15); }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700; background: linear-gradient(45deg, #00d4ff, #ffffff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-subtitle { font-size: 1.4rem; margin-bottom: 1rem; color: #00d4ff; font-weight: 600; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .market-badges { display: flex; justify-content: center; gap: 1rem; margin: 2rem 0; flex-wrap: wrap; }
-        .market-badge { background: rgba(0, 212, 255, 0.2); border: 1px solid rgba(0, 212, 255, 0.3); padding: 8px 16px; border-radius: 25px; font-size: 0.9rem; color: #00d4ff; }
-        .cta-button { background: linear-gradient(45deg, #00d4ff, #0099cc); color: white; padding: 18px 35px; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; text-decoration: none; display: inline-block; box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3); margin: 0 10px 10px 0; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(0, 212, 255, 0.4); }
-        .section { padding: 100px 0; background: #f8fafc; }
-        .section-alt { background: linear-gradient(135deg, #f8fafc, #e2e8f0); }
-        .section h2 { text-align: center; font-size: 2.8rem; margin-bottom: 1rem; background: linear-gradient(45deg, #1a1a3e, #2d4a8f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700; }
-        .section-subtitle { text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 4rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-        .border-divider { width: 100px; height: 4px; background: linear-gradient(45deg, #00d4ff, #0099cc); margin: 2rem auto; border-radius: 2px; }
-        .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 4rem; }
-        .market-card { background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(26, 26, 62, 0.1); text-align: center; border: 3px solid transparent; position: relative; }
-        .market-icon { width: 80px; height: 80px; background: linear-gradient(45deg, #00d4ff, #0099cc); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 2.5rem; color: white; }
-        .market-card h3 { color: #1a1a3e; margin-bottom: 1rem; font-size: 1.6rem; }
-        .market-benefits { list-style: none; text-align: left; margin: 2rem 0; }
-        .market-benefits li { padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
-        .market-benefits li::before { content: '✓'; color: #00d4ff; font-weight: bold; font-size: 1.2rem; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .service-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(26, 26, 62, 0.1); text-align: center; transition: all 0.3s; border: 1px solid rgba(0, 212, 255, 0.1); position: relative; overflow: hidden; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2); }
-        .service-icon { width: 80px; height: 80px; background: linear-gradient(45deg, #00d4ff, #0099cc); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; color: white; }
-        .coverage-section { background: linear-gradient(135deg, #1a1a3e, #2d4a8f); color: white; text-align: center; }
-        .time-zones { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .timezone-card { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
-        .timezone-card h3 { color: #00d4ff; margin-bottom: 1rem; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; margin-top: 3rem; }
-        .stat { background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 40px rgba(26, 26, 62, 0.1); }
-        .stat-number { font-size: 4rem; font-weight: bold; background: linear-gradient(45deg, #00d4ff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; display: block; }
-        .industries { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; }
-        .industry { background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: all 0.3s; }
-        .industry:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2); }
-        .contact-form { background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 15px 50px rgba(26, 26, 62, 0.15); max-width: 600px; margin: 0 auto; }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; color: #1a1a3e; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 15px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; transition: all 0.3s; background: #f8fafc; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #00d4ff; background: white; box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1); }
-        .form-message { text-align: center; color: #0099cc; margin-top: 1rem; }
-        footer { background: linear-gradient(135deg, #1a1a3e, #2d4a8f); color: white; text-align: center; padding: 4rem 0 2rem; }
-        .footer-logo { margin-bottom: 2rem; }
-        .footer-logo .logo-text { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        @media (max-width: 900px) { .market-grid, .services-grid, .stats-grid, .industries, .time-zones { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) {
-            .nav-links { display: none; position: absolute; top: 70px; right: 20px; background: #1a1a3e; flex-direction: column; gap: 1.5rem; padding: 1.5rem 2rem; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-            .nav-links.active { display: flex; }
-            .nav-toggle { display: flex; }
-            .hero h1 { font-size: 2.2rem; }
+        /* ... all your previous styles ... */
+
+        /* --- Add these below your existing styles --- */
+
+        /* Animated logo */
+        .logo-img img, .hero-logo img {
+            animation: logoPulse 2s infinite alternate;
         }
+        @keyframes logoPulse {
+            0% { transform: scale(1) rotate(-2deg); box-shadow: 0 0 0 rgba(0,212,255,0.1);}
+            100% { transform: scale(1.07) rotate(2deg); box-shadow: 0 0 24px rgba(0,212,255,0.3);}
+        }
+
+        /* Interactive button animation */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0, 212, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            z-index: 0;
+        }
+        .cta-button:hover::after {
+            width: 220%;
+            height: 220%;
+        }
+        .cta-button:active {
+            animation: pulse 0.2s;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1);}
+            50% { transform: scale(1.03);}
+            100% { transform: scale(1);}
+        }
+
     </style>
 </head>
 <body>
@@ -148,7 +124,7 @@
                     <p>Local expertise for South African businesses expanding nationally or needing specialized support operations.</p>
                     <ul class="market-benefits">
                         <li>Deep local market knowledge</li>
-                        <li>Multi-language support (English, Afrikaans, isiZulu)</li>
+                        <li>Multi-language support</li>
                         <li>Understanding of local payment methods</li>
                         <li>POPIA compliance expertise</li>
                         <li>Rand-based pricing options</li>
@@ -158,13 +134,11 @@
                 <div class="market-card">
                     <div class="market-icon">🇺🇸</div>
                     <h3>US Market Entry</h3>
-                    <p>Support US businesses with cost-effective solutions or help international companies enter the American market.</p>
+                    <p>We are now only trying to get into this market and do not have experience in the US market yet.</p>
                     <ul class="market-benefits">
                         <li>US business culture understanding</li>
                         <li>Extended hours for US time zones</li>
                         <li>Dollar-denominated service options</li>
-                        <li>Experience with US e-commerce platforms</li>
-                        <li>Understanding of US consumer expectations</li>
                         <li>Scalable teams for growth phases</li>
                     </ul>
                 </div>
@@ -276,20 +250,8 @@
                     <p>Online stores, marketplaces, fashion, electronics</p>
                 </div>
                 <div class="industry">
-                    <h3>FINTECH & FINANCE</h3>
-                    <p>Digital banking, payments, cryptocurrency, insurance</p>
-                </div>
-                <div class="industry">
-                    <h3>SAAS & TECHNOLOGY</h3>
-                    <p>Software companies, apps, cloud services, startups</p>
-                </div>
-                <div class="industry">
                     <h3>TRAVEL & HOSPITALITY</h3>
                     <p>Booking platforms, hotels, airlines, tour operators</p>
-                </div>
-                <div class="industry">
-                    <h3>HEALTHCARE & WELLNESS</h3>
-                    <p>Telemedicine, health apps, medical devices, fitness</p>
                 </div>
                 <div class="industry">
                     <h3>SUBSCRIPTION SERVICES</h3>
@@ -306,7 +268,7 @@
             <div class="section-subtitle">Tell us about your market and we'll design the perfect support solution</div>
             <div class="contact-form">
                 <!-- Use Formspree for professional form handling, or fallback to mailto link -->
-                <form action="https://formspree.io/f/yourformid" method="POST">
+                <form action="mailto:contact@alyntic.com" method="POST">
                     <div class="form-group">
                         <label for="company">Company Name</label>
                         <input type="text" id="company" name="company" required>
@@ -356,12 +318,12 @@
                     <button type="submit" class="cta-button" style="width: 100%;">Get Your Custom Solution</button>
                 </form>
                 <div class="form-message">
-                    <p>Prefer email? <a href="mailto:alynticz@gmail.com">alynticz@gmail.com</a></p>
+                    <p>Prefer email? <a href="mailto:contact@alyntic.com">contact@alyntic.com</a></p>
                 </div>
                 <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #e2e8f0; text-align: center;">
                     <h4 style="color: #1a1a3e; margin-bottom: 1rem;">Direct Contact</h4>
                     <p><strong>Igsaan Kennedy, Founder:</strong> +27 73 136 9654</p>
-                    <p><strong>Email:</strong> alynticz@gmail.com</p>
+                    <p><strong>Email:</strong> contact@alyntic.com</p>
                     <p><strong>Location:</strong> Cape Town, South Africa</p>
                     <p><strong>Response Time:</strong> Within 4 hours (business days)</p>
                     <p style="margin-top: 1rem; font-style: italic; color: #2d4a8f;">"Global reach, personal touch - from Cape Town to the world."</p>
