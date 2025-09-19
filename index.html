@@ -350,6 +350,111 @@
             </div>
         </div>
     </section>
+<!-- Contact Section -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <div class="border-divider"></div>
+    <div class="section-subtitle">
+      Tell us about your market and we'll design the perfect support solution
+    </div>
+
+    <div class="contact-form">
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" required>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="from_name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="reply_to" required>
+        </div>
+
+        <div class="form-group">
+          <label for="market">Primary Market</label>
+          <select id="market" name="market">
+            <option>UK & Europe</option>
+            <option>USA & Canada</option>
+            <option>South Africa</option>
+            <option>Australia & New Zealand</option>
+            <option>Multiple Markets</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="service">Service Interest</label>
+          <select id="service" name="service">
+            <option>Customer Support</option>
+            <option>E-commerce Operations</option>
+            <option>Technical Support</option>
+            <option>Sales & Lead Generation</option>
+            <option>Back Office Services</option>
+            <option>Custom BPO Solution</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="volume">Expected Volume</label>
+          <select id="volume" name="volume">
+            <option>Less than 100 contacts/day</option>
+            <option>100-500 contacts/day</option>
+            <option>500-1000 contacts/day</option>
+            <option>1000+ contacts/day</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell Us About Your Requirements</label>
+          <textarea id="message" name="message" rows="4"
+            placeholder="What challenges are you facing? Which markets are you targeting? What's your timeline?"></textarea>
+        </div>
+
+        <button type="submit" class="cta-button" style="width: 100%;">
+          Get Your Custom Solution
+        </button>
+      </form>
+
+      <!-- Status Message -->
+      <div id="form-status"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    // 🔑 Replace with your EmailJS Public Key
+    emailjs.init("YOUR_PUBLIC_KEY");
+  })();
+
+  // Handle form submission
+  const contactForm = document.getElementById("contact-form");
+  contactForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm(
+      "YOUR_SERVICE_ID",   // 🔑 Replace with your EmailJS Service ID
+      "YOUR_TEMPLATE_ID",  // 🔑 Replace with your EmailJS Template ID
+      this
+    )
+    .then(function() {
+      document.getElementById("form-status").innerHTML =
+        "<p style='color:green;'>✅ Request sent successfully! We'll contact you shortly.</p>";
+      contactForm.reset();
+    }, function(error) {
+      document.getElementById("form-status").innerHTML =
+        "<p style='color:red;'>❌ Oops! Something went wrong. Please try again.</p>";
+      console.error("EmailJS Error:", error);
+    });
+  });
+</script>
 
                         </select>
                     </div>
@@ -421,111 +526,5 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alyntic - Customer Support Solutions | Cape Town to Global</title>
   <style>
-    /* Example styling — keep your own CSS */
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    section { padding: 50px 20px; }
-    h2 { text-align: center; }
-    .form-group { margin-bottom: 15px; }
-    label { display: block; margin-bottom: 5px; font-weight: bold; }
-    input, select, textarea {
-      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
-    }
-    .cta-button {
-      background: #0056b3; color: #fff; padding: 12px; border: none; border-radius: 5px;
-      cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s;
-    }
-    .cta-button:hover { background: #003d80; }
-    #form-status { margin-top: 15px; text-align: center; }
-  </style>
-
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function(){
-       emailjs.init("YOUR_PUBLIC_KEY"); // 🔑 Replace with your EmailJS Public Key
-    })();
-  </script>
-</head>
-<body>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <div class="border-divider"></div>
-      <div class="section-subtitle">
-        Tell us about your market and we'll design the perfect support solution
-      </div>
-      <div class="contact-form">
-        <form id="contact-form">
-          <div class="form-group">
-            <label for="company">Company Name</label>
-            <input type="text" id="company" name="company" required>
-          </div>
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="from_name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="reply_to" required>
-          </div>
-          <div class="form-group">
-            <label for="market">Primary Market</label>
-            <select id="market" name="market">
-              <option>UK & Europe</option>
-              <option>USA & Canada</option>
-              <option>South Africa</option>
-              <option>Australia & New Zealand</option>
-              <option>Multiple Markets</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="service">Service Interest</label>
-            <select id="service" name="service">
-              <option>Customer Support</option>
-              <option>E-commerce Operations</option>
-              <option>Technical Support</option>
-              <option>Sales & Lead Generation</option>
-              <option>Back Office Services</option>
-              <option>Custom BPO Solution</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="volume">Expected Volume</label>
-            <select id="volume" name="volume">
-              <option>Less than 100 contacts/day</option>
-              <option>100-500 contacts/day</option>
-              <option>500-1000 contacts/day</option>
-              <option>1000+ contacts/day</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell Us About Your Requirements</label>
-            <textarea id="message" name="message" rows="4" placeholder="What challenges are you facing? Which markets are you targeting? What's your timeline?"></textarea>
-          </div>
-          <button type="submit" class="cta-button" style="width: 100%;">Get Your Custom Solution</button>
-        </form>
-        <div id="form-status"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Form Script -->
-  <script>
-    const contactForm = document.getElementById("contact-form");
-    contactForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", this) // 🔑 Replace with your IDs
-        .then(function() {
-          document.getElementById("form-status").innerHTML = "<p style='color:green;'>✅ Request sent successfully! We'll contact you shortly.</p>";
-          contactForm.reset();
-        }, function(error) {
-          document.getElementById("form-status").innerHTML = "<p style='color:red;'>❌ Oops! Something went wrong. Please try again.</p>";
-          console.error("EmailJS Error:", error);
-        });
-    });
-  </script>
 </body>
 </html>
